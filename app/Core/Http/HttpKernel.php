@@ -14,6 +14,7 @@ class HttpKernel extends Kernel
      * @var array
      */
     protected $middleware = [
+        \Fruitcake\Cors\HandleCors::class,
         \App\Core\Http\Middleware\AlwaysExpectsJson::class,
         \App\Core\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
@@ -47,6 +48,7 @@ class HttpKernel extends Kernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'cors' => \Fruitcake\Cors\HandleCors::class,
         'guest' => \App\Core\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
